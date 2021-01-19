@@ -23,7 +23,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "",
-  "manifest": "",
+  "manifest": "https://raw.githubusercontent.com/david00medina/foundryvtt-wod-20th/main/system.json",
   "download": "",
   "license": "LICENSE.txt"
 }
