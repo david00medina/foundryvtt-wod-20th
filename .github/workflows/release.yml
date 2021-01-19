@@ -32,7 +32,7 @@ jobs:
     - run: npm run build --if-present
     - run: echo "Packing game system..."
     - run: mv dist/wod20th.bundle.js ..
-    - run: apt-get update && apt-get install zip
+    #- run: apt-get update && apt-get install zip
     - run: zip -r wod20th.zip template.json system.json lang styles LICENSE README.md wod20th.bundle.js
     - run: rm -rf dist
     - run: echo "Uploading artifact..."
