@@ -6,5 +6,6 @@ Hooks.once('init', () => {
     configWOD20TH();
     registerActorSheets();
     loadWOD20THTemplates();
-    console.log(Actors.registeredSheets);
+    console.log(CONFIG.Actor.collection);
+    console.log(CONFIG);
 })

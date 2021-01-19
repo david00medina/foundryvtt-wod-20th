@@ -1,7 +1,5 @@
-import {VampireWOD20THActor} from "./actor/vampire";
-import {VampireWOD20THActorSheet} from "./actor/sheet/vampire-sheet";
+import {WOD20THActor} from "./actors/actor";
 
 export function configWOD20TH() {
-    CONFIG.Actor.entityClass = VampireWOD20THActor;
-    CONFIG.Actor.sheetClass = VampireWOD20THActorSheet;
+    CONFIG.Actor.entityClass = WOD20THActor;
 }

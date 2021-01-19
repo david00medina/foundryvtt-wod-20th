@@ -1,5 +1,12 @@
-import {VampireWOD20THActorSheet} from "./actor/sheet/vampire-sheet";
+import {VampireWOD20THActorSheet} from "./actors/sheet/vampireSheet";
 
 export function registerActorSheets() {
-    Actors.registerSheet("vampire", VampireWOD20THActorSheet);
+    Actors.unregisterSheet("core", ActorSheet);
+
+    Actors.registerSheet("vampire", VampireWOD20THActorSheet, {
+        types: [
+            "vampire"
+        ],
+        makeDefault: true
+    });
 }

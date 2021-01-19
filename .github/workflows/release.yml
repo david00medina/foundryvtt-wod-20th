@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: echo "Installing npm dependencies"
     - run: npm install -g webpack webpack-cli typescript
-    - run: npm install --save-dev typescript ts-loader webpack webpack-cli handlebars
+    - run: npm install --save-dev typescript ts-loader webpack webpack-cli handlebars gitlab:foundry-projects/foundry-pc/foundry-pc-types
     - run: echo "Building project..."
     - run: npm run build --if-present
     - run: echo "Packing game system..."

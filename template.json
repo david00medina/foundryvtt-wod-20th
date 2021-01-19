@@ -1,6 +1,6 @@
 {
     "Actor": {
-        "types": ["vampire", "vampire-npc", "human"]
+        "types": ["vampire", "human"]
     },
     "Item": {
         "types": ["melee", "weapon", "discipline"]
