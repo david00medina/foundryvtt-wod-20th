@@ -35,4 +35,8 @@ jobs:
     - run: apt-ger update && apt-get install zip
     - run: zip -r wod20th.zip template.json system.json lang styles LICENSE README.md wod20th.bundle.js
     - run: rm -rf dist
-    - run: echo "Release zip built"
+    - run: echo "Uploading artifact..."
+    - uses: "actions/upload-artifact@v2"
+      with:
+        name: wod20th-release
+        path: release/wod20th-release.zip
