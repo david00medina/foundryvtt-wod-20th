@@ -21,7 +21,7 @@
   "gridDistance": 5,
   "gridUnits": "m",
   "url": "",
-  "manifest": "",
+  "manifest": "https://raw.githubusercontent.com/david00medina/foundryvtt-wod-20th/wod-1.0.0-dev/system.json",
   "download": "",
   "license": "LICENSE"
 }
