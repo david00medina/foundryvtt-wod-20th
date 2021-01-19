@@ -1,14 +1,14 @@
 {
-  "name": "wod",
+  "name": "wod20th",
   "title": "World of Darkness",
-  "description": "The World of Darkness system for FoundryVTT!",
+  "description": "The World of Darkness game system for FoundryVTT",
   "version": "1.0.0",
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
-  "author": "David Medina",
-  "esmodules": ["module/wod.js"],
-  "styles": ["css/wod.css"],
+  "author": "Medina, David",
+  "esmodules": ["dist/wod20th.bundle.js"],
+  "styles": ["styles/wod20th.css"],
   "scripts": [],
   "packs": [],
   "languages": [
@@ -19,11 +19,9 @@
     }
   ],
   "gridDistance": 5,
-  "gridUnits": "ft",
-  "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power",
+  "gridUnits": "m",
   "url": "",
   "manifest": "",
   "download": "",
-  "license": "LICENSE.txt"
+  "license": "LICENSE"
 }
