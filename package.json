@@ -14,7 +14,7 @@
     "typescript": "^4.1.3"
   },
   "scripts": {
-    "build": "tsc; webpack",
+    "build": "tsc && webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
