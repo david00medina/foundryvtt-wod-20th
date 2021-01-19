@@ -1,13 +1,13 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: WoD 20th zip file
 
 on:
   push:
-    branches: [ main ]
+    branches: [ wod-1.0.0-dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ wod-1.0.0-dev ]
 
 jobs:
   build:
@@ -25,7 +25,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
+    - run: echo "Installing npm dependencies"
+    - run: npm install -g webpack webpack-cli typescript
+    - run: npm install --save-dev typescript ts-loader webpack webpack-cli handlebars
+    - run: echo "Building project..."
     - run: npm run build --if-present
-    - run: npm test
-    - run: zip -r wod20th.zip template.json system.json lang styles LICENSE README.md dist/wod20th.bundle.js
+    - run: echo "Packing game system..."
+    - run: mv dist/wod20th.bundle.js ..
+    - run: apt-ger update && apt-get install zip
+    - run: zip -r wod20th.zip template.json system.json lang styles LICENSE README.md wod20th.bundle.js
+    - run: rm -rf dist
+    - run: echo "Release zip built"
