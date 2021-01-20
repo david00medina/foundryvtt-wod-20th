@@ -32,7 +32,7 @@ jobs:
     - run: npm run build --if-present
     - run: echo "Packing game system..."
     - run: mv dist/wod20th.bundle.js ..
-    - run: mkdir release && zip -r release/wod20th.zip template.json system.json lang styles LICENSE README.md wod20th.bundle.js
+    - run: mkdir release && zip -r release/wod20th.zip templates.json system.json lang styles LICENSE README.md wod20th.bundle.js
     - run: rm -rf dist
     - run: echo "Uploading artifact..."
     - uses: "actions/upload-artifact@v2"

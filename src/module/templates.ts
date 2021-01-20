@@ -1,8 +1,9 @@
 export function loadWOD20THTemplates() {
-    const templatePaths = [
+    let templatePaths: any[];
+    templatePaths = [
         // Character sheet fragments
-        'systems/wod20th/template/actors/actorSheet.hbs',
-    ]
+        'systems/wod20th/templates/actors/actorSheet.hbs',
+    ];
 
     return loadTemplates(templatePaths);
 }
