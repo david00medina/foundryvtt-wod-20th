@@ -110,3 +110,13 @@ modules.xml
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
+node_modules/
+bower_components/
+*.log
+
+build/
+dist/
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
