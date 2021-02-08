@@ -13,15 +13,23 @@
 // Import TypeScript modules
 import { registerSettings } from './module/settings.js';
 import { preloadTemplates } from './module/preloadTemplates.js';
+import {WoD20thActor} from "./module/actor/WoD20thActor";
 
 /* ------------------------------------ */
 /* Initialize system					*/
 /* ------------------------------------ */
+export const ROOT = "systems/wod20th/"
+
 Hooks.once('init', async function() {
 	console.log('wod20th | Initializing wod20th');
 
 	// Assign custom classes and constants here
-	
+	game.WoD20th = {
+		WoD20thActor,
+		// WoD20thItem
+	};
+	CONFIG.Actor.entityClass = game.WoD20th.WoD20thActor;
+
 	// Register custom system settings
 	registerSettings();
 	

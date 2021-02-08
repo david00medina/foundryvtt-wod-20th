@@ -1,10 +1,4 @@
 {
-  "Actor": {
-    "types": [],
-    "templates": []
-  },
-  "Item": {
-    "types": [],
-    "templates": []
-  }
+  "Actor": {  },
+  "Item": {  }
 }
