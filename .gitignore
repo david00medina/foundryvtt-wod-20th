@@ -1,6 +1,9 @@
 node_modules
 foundryconfig.json
-dist
+dist/*
+
+# Ignore documentation folder
+docs/*
 
 # Created by https://www.toptal.com/developers/gitignore/api/jetbrains+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=jetbrains+all

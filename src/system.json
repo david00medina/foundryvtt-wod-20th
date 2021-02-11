@@ -1,7 +1,7 @@
 {
-  "name": "wod20th",
-  "title": "wod20th",
-  "description": "A holistic game system for World of Darkness 20th anniversary edition",
+  "name": "wod",
+  "title": "wod",
+  "description": "A holistic game system for World of Darkness",
   "version": "0.1.0",
   "author": "",
   "authors": [
@@ -12,8 +12,8 @@
     }
   ],
   "scripts": [],
-  "esmodules": ["wod20th.js"],
-  "styles": ["wod20th.css"],
+  "esmodules": ["wod.js"],
+  "styles": ["wod.css"],
   "packs": [],
   "languages": [{
     "lang": "en",
