@@ -11,14 +11,12 @@
  */
 
 import { registerSettings } from './module/system/settings.js';
-import { preloadTemplates } from './module/system/preloadTemplates.js';
-import {registerCharacterSheets} from "./module/system/registerCharacterSheets";
-import {registerActors} from "./module/system/registerActors";
+import { preloadTemplates } from './module/system/preload-templates.js';
+import {registerCharacterSheets} from "./module/system/register-character-sheets";
+import {registerActors} from "./module/system/register-actors";
 
 /**
  * Base path to the World of Darkness game system
- * @global
- * @type {string}
  */
 export const WOD_ROOT = "systems/wod/"
 
@@ -26,7 +24,7 @@ export const WOD_ROOT = "systems/wod/"
  * Runs the game system initialization functions
  */
 Hooks.once('init', async function() {
-	console.log('wod | Initializing wod');
+	console.log('WoD | Initializing WoD');
 	game.WoD = {};
 
 	// Assign custom classes and constants here

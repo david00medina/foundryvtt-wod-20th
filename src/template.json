@@ -1,9 +1,4 @@
 {
-  "Actor": {
-    "types": ["vampire", "mage", "werewolf"],
-    "vampire": {},
-    "mage": {},
-    "werewolf": {}
-  },
+  "Actor": {  },
   "Item": {  }
 }

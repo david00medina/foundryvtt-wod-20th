@@ -1,0 +1,10 @@
+{
+  "name": "World of Darkness for Foundry VTT",
+  "entryPoints": ["src/module"],
+  "out": "docs",
+  "gitRemote": "origin",
+  "gitRevision": "wod-1.0.0-dev",
+  "theme": "minimal",
+  "highlightTheme": "material-theme-default",
+  "categorizeByGroup": true
+}

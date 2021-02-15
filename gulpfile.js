@@ -502,3 +502,13 @@ exports.publish = gulp.series(
 	packageBuild,
 	execGit
 );
+
+var typedoc = require("gulp-typedoc");
+gulp.task("typedoc", function () {
+	return gulp.src(["src/**/*.ts"]).pipe(
+		typedoc({
+			out: "docs/",
+			name: "My project title",
+		})
+	);
+});
