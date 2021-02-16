@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v1.0.0
+        uses: actions/checkout@v2
         with:
-          persist-credentials: false
+          fetch-depth: 0
       - name: Install and Build 🔧
         run: |
           npm install
           gulp build
       - name: Deploy 🚀
-        uses: david00medina/foundryvtt-wod-20th@wod-1.0.0-dev
+        uses: david00medina/github-tag-action@1.26.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FOLDER: dist
