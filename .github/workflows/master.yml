@@ -18,9 +18,11 @@ jobs:
           cd dist
           ls -la
       - name: ZIP Project 📦
-        run: |
-          zip -r wod-foundry-vtt.zip ..
-          ls -la
-          pwd
+        run: zip -r wod-foundry-vtt.zip ..
       - name: Deploy 🚀
-        run: echo "Deploy here"
+        uses: david00medina@wod-1.0.0-dev@wod-1.0.0-dev
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FOLDER: dist
+          BRANCK: wod-1.0.0-dev
+          REPO_OWNER: david00medina
