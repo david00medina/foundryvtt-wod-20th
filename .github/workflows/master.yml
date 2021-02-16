@@ -16,9 +16,10 @@ jobs:
         run: |
           npm install
           gulp build
-      - name: Switch to the dist folder 🚘
-        run: |
-          cd dist
-          ls -la
-      - name: ZIP Project 📦
-        run: zip -r wod-foundry-vtt.zip ..
+      - name: Deploy 🚀
+        uses: david00medina/foundryvtt-wod-20th@wod-1.0.0-dev
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FOLDER: dist
+          BRANCH: wod-1.0.0-dev
+          REPO_OWNER: david00medina
