@@ -18,7 +18,7 @@ jobs:
           gulp build
       - name: Deploy 🚀
         uses: david00medina/foundryvtt-wod-20th@wod-1.0.0-dev
-        with:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FOLDER: dist
           BRANCH: wod-1.0.0-dev
