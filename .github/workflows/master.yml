@@ -1,0 +1,21 @@
+name: WoD Deploy CI
+on:
+  push:
+    branches:
+      - main
+      - wod-1.0.0-dev
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build project
+        run: gulp build
+      - name: Switch to the dist folder
+        run: |
+          cd dist
+          ls -la
+      - name: ZIP Project
+        run: zip -r wod-foundry-vtt.zip .
+      - name: Released to Github
+        run: echo "Done!"

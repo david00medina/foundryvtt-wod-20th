@@ -1,262 +1,38 @@
 /**
- * Contains the base class and common components of
- * a World of Darkness character
+ * Contains the classes responsible of the implementation
+ * of actos in World of Darkness.
  * @packageDocumentation
  * @category WoD Actor
- * @module Base Actor
+ * @module Actors
  */
-import {ArchetypeEnum, DamageTypeEnum, HealthStateEnum, WoDEditionEnum} from "./wod-enum";
 
 /**
- * It manages the damage received by an actor
- * during the game
- * @category Health system
+ * Defines the WoD edition available to select
+ * when creating an actor or a game rule
+ * @category General
  */
-export class Damage {
-    /**
-     * Maximum damage an actor may receive
-     */
-    readonly MAX_DAMAGE: number = 7;
-
-    /**
-     * Bashing damage points
-     */
-    private _bashing: number;
-
-    /**
-     * Lethal damage points
-     */
-    private _lethal: number;
-
-    /**
-     * Aggrevated damage points
-     */
-    private _aggravated: number;
-
-    /**
-     * The damage constructor
-     */
-    constructor() {
-        this.bashing = 0;
-        this.lethal = 0;
-        this.aggravated = 0;
-    }
-
-    /**
-     * Bashing damage getter
-     */
-    get bashing (): number {
-        return this._bashing;
-    }
-
-    /**
-     * Bashing damage setter
-     * @param points
-     */
-    set bashing(points: number) {
-        this._bashing = points;
-    }
-
-    /**
-     * Lethal damage getter
-     */
-    get lethal(): number {
-        return this._lethal;
-    }
-
-    /**
-     * Lethal damage setter
-     * @param points
-     */
-    set lethal(points: number) {
-        this._lethal = points;
-    }
-
-    /**
-     * Aggravated damage getter
-     */
-    get aggravated(): number {
-        return this._aggravated;
-    }
-
-    /**
-     * Aggravated damage setter
-     * @param points
-     */
-    set aggravated(points: number) {
-        this._aggravated = points;
-    }
+export enum WoDEditionEnum {
+    "20TH_ANNIVERSARY",
+    "5TH_EDITION",
+    "MIXED"
 }
 
 /**
- * Manages actor's health.
- * @category Health system
+ * List of playable races in WoD
+ * @category General
  */
-export class Health {
-    /**
-     * The maximum health point an actor may have
-     */
-    public readonly MAX_HP: number = 7;
-
-    /**
-     * Health points
-     */
-    private _hp: number;
-
-    /**
-     * Actor health state
-     */
-    private _state: HealthStateEnum;
-
-    /**
-     * Contains the amount of damage received by the actor
-     */
-    private _damage: Damage;
-
-    /**
-     * The health constructor
-     */
-    constructor() {
-        this._state = HealthStateEnum.HEALTHY;
-        this._damage = new Damage();
-    }
-
-    /**
-     * Heal a certain amount of damage
-     */
-    public heal(damage: Damage): void {
-        this._damage.bashing -= damage.bashing;
-        this._damage.lethal -= damage.lethal;
-        this._damage.aggravated -= damage.aggravated;
-    }
-
-    /**
-     * Force an actor to receive a certain amount of
-     * a damage kind
-     */
-    public hurt(type: DamageTypeEnum, points: number): void {
-        switch (type) {
-            case DamageTypeEnum.BASHING:
-                this._damage.bashing += points;
-                break;
-            case DamageTypeEnum.LETHAL:
-                this._damage.lethal += points;
-                break;
-            case DamageTypeEnum.AGGRAVATED:
-                this._damage.lethal += points;
-                break;
-            default:
-                break;
-        }
-    }
-
-    /**
-     * Retrieves damage penalty associated with a health state
-     */
-    public damagePenalty(): number {
-        return HealthStateEnum.healthStatePenalty(this._state);
-    }
-}
-
-/**
- * Manages the experience earned by an actor
- * @category Experience system
- */
-
-export class Experience {
-    /**
-     * Holds the amount of experience points earned by an actor
-     */
-    private _xp: number;
-
-    /**
-     * Experience constructor
-     */
-    constructor() {
-        this._xp = 0;
-    }
-
-    /**
-     * Experience points getter
-     */
-    get xp(): number {
-        return this._xp;
-    }
-
-    /**
-     * Experience points setter
-     */
-    set xp(points: number) {
-        this._xp = points;
-    }
-}
-
-/**
- * Determines the psyche of the actor
- * @category Psyche system
- */
-export class Psyche {
-    /**
-     * The real personality of the actor that hides
-     * behind a mask
-     */
-    private _nature: ArchetypeEnum;
-
-    /**
-     * The way the actor behaves externally
-     */
-    private _demeanor: ArchetypeEnum;
-
-    /**
-     * Describes in one or two words who the actor is
-     */
-    private _concept: string;
-
-    constructor(nature: ArchetypeEnum, demeanor: ArchetypeEnum, concept: string) {
-        this._nature = nature;
-        this._demeanor = demeanor;
-        this._concept = concept;
-    }
-
-    /**
-     * Nature name getter
-     */
-    get nature(): string {
-        return ArchetypeEnum.getName(this._nature);
-    }
-
-    /**
-     * Nature type description getter
-     */
-    get nature_description(): string {
-        return ArchetypeEnum.getDescription(this._nature);
-    }
-
-    /**
-     * Demeanor name getter
-     */
-    get demeanor(): string {
-        return ArchetypeEnum.getName(this._demeanor);
-    }
-
-    /**
-     * Demeanor type description getter
-     */
-    get demeanor_description(): string {
-        return ArchetypeEnum.getDescription(this._demeanor);
-    }
-
-    /**
-     * Concept getter
-     */
-    get concept(): string {
-        return this._concept;
-    }
+export enum WoDRaceEnum {
+    VAMPIRE,
+    WEREWOLF,
+    MAGE,
+    FAIRY,
+    WRAITH,
+    MUMMY,
+    DEMON
 }
 
 /**
  * Creates a new Actor for World of Darkness
- * @module WoD Actors
  * @category General
  */
 export class WoDActor extends Actor {
@@ -277,5 +53,86 @@ export class WoDActor extends Actor {
      */
     prepareData() {
         super.prepareData();
+    }
+}
+
+/**
+ * Enumerates the clan sects
+ * @category Vampire
+ */
+export enum ClanSectEnum {
+    ASSAMITE,
+    BRUJAH,
+    GANGREL,
+    GIOVANNI,
+    LASOMBRA,
+    MALKAVIAN,
+    NOSFERATU,
+    RAVNOS,
+    SET_FOLLOWERS,
+    TOREADOR,
+    TREMERE,
+    TZIMISCE,
+    VENTRUE
+}
+
+/**
+ * Set of functions to operate with the clan sect enumerates
+ * @category Vampire
+ */
+export namespace ClanSectEnum {
+    /**
+     * Gets the name of the clan sect
+     * @param clan
+     */
+    export function getClan(clan: ClanSectEnum): string {
+        return ClanSectEnum[clan];
+    }
+
+    /**
+     * Displays clan weakness
+     * @param clan
+     */
+    export function weakness(clan: ClanSectEnum): string {
+        switch (clan) {
+            default:
+                return ""
+        }
+    }
+}
+
+/**
+ * A concrete class which defines an actor playing
+ * as a vampire in the World of Darkness.
+ * @category Vampire
+ */
+export class VampireActor extends WoDActor {
+    /**
+     * Establishes the vampiric generation; how close
+     * the actor is to the first vampire, Cain.
+     */
+    private _generation: number;
+
+    /**
+     * VampireActor constructor
+     */
+    constructor(data, props) {
+        super(data, props);
+        this.generation = data.generation;
+    }
+
+    /**
+     * Generation level getter
+     */
+    get generation(): number {
+        return this._generation;
+    }
+
+    /**
+     * Generation level setter
+     * @param lvl
+     */
+    set generation(lvl: number) {
+        this.generation = lvl;
     }
 }
