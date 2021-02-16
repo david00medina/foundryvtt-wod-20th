@@ -23,4 +23,3 @@ jobs:
           ls -la
           pwd
       - name: Deploy 🚀
-        uses:
