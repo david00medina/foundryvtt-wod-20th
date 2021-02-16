@@ -5,10 +5,13 @@ on:
       - main
       - wod-1.0.0-dev
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1.0.0
+      - name: Checkout 🛎️
+        uses: actions/checkout@v1.0.0
+        with:
+          persist-credentials: false
       - name: Install and Build 🔧
         run: |
           npm install
