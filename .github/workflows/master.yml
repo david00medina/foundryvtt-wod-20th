@@ -8,11 +8,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build project
+      - name: Checkout 🛎️
+      - uses: actions/checkout@v1.0.0
+      - name: Install and Build 🔧
         run: |
-        npm install
-        gulp build
+          npm install
+          gulp build
       - name: Switch to the dist folder
         run: |
           cd dist
