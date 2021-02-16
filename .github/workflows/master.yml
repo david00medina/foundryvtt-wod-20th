@@ -20,6 +20,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FOLDER: dist
-          BRANCH: wod-1.0.0-dev
-          REPO_OWNER: david00medina
+          SOURCE: dist
