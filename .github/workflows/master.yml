@@ -24,8 +24,8 @@ jobs:
         run: zip -r wod-foundry-vtt.zip ..
       - name: Deploy 🚀
         uses: david00medina/foundryvtt-wod-20th@wod-1.0.0-dev
-        env:
+        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FOLDER: dist
-          BRANCK: wod-1.0.0-dev
+          BRANCH: wod-1.0.0-dev
           REPO_OWNER: david00medina
