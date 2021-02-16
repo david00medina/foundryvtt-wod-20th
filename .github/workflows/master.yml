@@ -10,7 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build project
-        run: npm init && gulp build
+        run: |
+        npm install
+        gulp build
       - name: Switch to the dist folder
         run: |
           cd dist
