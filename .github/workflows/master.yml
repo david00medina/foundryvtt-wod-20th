@@ -20,7 +20,7 @@ jobs:
       - name: ZIP Project 📦
         run: zip -r wod-foundry-vtt.zip ..
       - name: Deploy 🚀
-        uses: david00medina@wod-1.0.0-dev@wod-1.0.0-dev
+        uses: david00medina/foundryvtt-wod-20th@wod-1.0.0-dev
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FOLDER: dist
