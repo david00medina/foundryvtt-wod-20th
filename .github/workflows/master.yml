@@ -27,7 +27,6 @@ jobs:
       - name: Pack project asset
         run: |
         echo ${{ steps.create_release.outputs.upload_url }}
-        q '.download = "${{ steps.create_release.outputs.upload_url }}"' dist/system.json > dist/system.json
         zip -r wod-foundry-vtt.zip dist
       - name: Upload project asset
         id: upload-release-asset
