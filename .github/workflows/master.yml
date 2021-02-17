@@ -18,5 +18,6 @@ jobs:
         with:
           name: wod-foundry-vtt
           path: dist/
+      - name: Update system.json file
         run: |
           jq -h
