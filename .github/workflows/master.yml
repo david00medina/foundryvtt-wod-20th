@@ -21,7 +21,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_OWNER: david00medina
           WITH_V: true
-          SOURCE: dist
           INITIAL_VESION: 1.0.0
           PRERELEASE_SUFFIX: alfa
           VERBOSE: true
