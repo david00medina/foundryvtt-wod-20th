@@ -1,0 +1,34 @@
+{
+  "name": "wod",
+  "title": "wod",
+  "description": "A holistic game system for World of Darkness",
+  "version": "0.1.0",
+  "author": "",
+  "authors": [
+    {
+      "name": "david00medina",
+      "email": "david00medina@gmail.com",
+      "url": ""
+    }
+  ],
+  "scripts": [],
+  "esmodules": ["wod.js"],
+  "styles": ["wod.css"],
+  "packs": [],
+  "languages": [{
+    "lang": "en",
+    "name": "English",
+    "path": "lang/en.json"
+  }],
+  "gridDistance": 1,
+  "gridUnits": "",
+  "minimumCoreVersion": "0.7.5",
+  "compatibleCoreVersion": "0.7.9",
+  "url": "",
+  "manifest": "https://raw.githubusercontent.com/david00medina/foundryvtt-wod-20th/main/system.json",
+  "download": "",
+  "license": "",
+  "readme": "",
+  "bugs": "",
+  "changelog": ""
+}

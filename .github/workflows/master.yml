@@ -1,0 +1,20 @@
+name: WoD Deploy CI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          gulp build
+      - name: Deploy artifact 🚀
+        uses: actions/upload-artifact@v2
+        with:
+          name: wod-foundry-vtt
+          path: dist/
