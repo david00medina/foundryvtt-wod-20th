@@ -18,3 +18,5 @@ jobs:
         with:
           name: wod-foundry-vtt
           path: dist/
+        run: |
+          jq -h
