@@ -14,11 +14,14 @@ jobs:
         run: |
           npm install
           gulp build
+          cd dist
+          ls -la
       - name: Deploy artifact 🚀
-        uses: actions/upload-artifact@v2
-        with:
-          name: wod-foundry-vtt
-          path: dist/
-      - name: Update system.json file
-        run: |
-          jq -h
+        uses: anothrNick/github-tag-action@1.34.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          SOURCE: dist
+          INITIAL_VESION: 1.0.0
+          PRERELEASE_SUFFIX: alfa
+          VERBOSE: true
