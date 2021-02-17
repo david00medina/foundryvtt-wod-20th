@@ -14,12 +14,12 @@ jobs:
         run: |
           npm install
           gulp build
-          cd dist
-          ls -la
+          rsync -arv ./dist/ ./release
       - name: Deploy artifact 🚀
         uses: anothrNick/github-tag-action@1.34.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_OWNER: david00medina
           WITH_V: true
           SOURCE: dist
           INITIAL_VESION: 1.0.0
