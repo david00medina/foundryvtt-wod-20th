@@ -29,7 +29,7 @@ jobs:
         with:
           file: ./dist/system.json
           field: .download
-          value: ${{ steps.create_release.outputs.upload_url }}
+          value: test
       - name: Pack project asset
         run: zip -r wod-foundry-vtt.zip dist
       - name: Upload project asset
