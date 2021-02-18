@@ -28,7 +28,7 @@ jobs:
         uses: jossef/action-set-json-field@v1
         with:
           file: ./dist/system.json
-          field: download
+          field: .download
           value: ${{ steps.create_release.outputs.upload_url }}
       - name: Pack project asset
         run: zip -r wod-foundry-vtt.zip dist
