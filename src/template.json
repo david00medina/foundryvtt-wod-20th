@@ -1,4 +1,88 @@
 {
-  "Actor": {  },
+  "Actor": {
+    "types": ["vampire", "werewolf", "mage", "changeling", "wraith", "mummy", "demon"],
+    "templates": {
+      "base": {
+        "attributes": {
+          "physical": {
+            "strength": {
+              "value": 1,
+              "min": 0,
+              "max": 10
+            },
+            "dexterity": {
+              "value": 1,
+              "min": 0,
+              "max": 10
+            },
+            "stamina": {
+              "value": 1,
+              "min": 0,
+              "max": 10
+            }
+          },
+          "social": {
+            "charisma": {
+              "value": 1,
+              "min": 0,
+              "max": 10
+            },
+            "manipulation": {
+              "value": 1,
+              "min": 0,
+              "max": 10
+            },
+            "appearance": {
+              "value": 0,
+              "min": 0,
+              "max": 10
+            }
+          },
+          "mental": {
+            "perception": {
+              "value": 1,
+              "min": 0,
+              "max": 10
+            },
+            "intelligence": {
+              "value": 1,
+              "min": 0,
+              "max": 10
+            },
+            "wits": {
+              "value": 1,
+              "min": 0,
+              "max": 10
+            }
+          }
+        },
+        "abilities": {
+          "talents": { },
+          "skills": { },
+          "knowledges": { }
+        }
+      }
+    },
+    "vampire": {
+      "clan": [
+        "assamite",
+        "brujah",
+        "gangrel",
+        "giovanni",
+        "lasombra",
+        "malkavian",
+        "nosferatu",
+        "ravnos",
+        "set followers",
+        "toreador",
+        "tremere",
+        "tzimisce",
+        "ventrue"
+
+      ]
+    },
+    "werewolf": { },
+    "mage": { }
+  },
   "Item": {  }
 }

@@ -24,15 +24,15 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: true
           prerelease: true
-      - name: Upload system.json file
+      - name: Upload system.json file 🖊️
         uses: jossef/action-set-json-field@v1
         with:
           file: ./dist/system.json
           field: .download
           value: test
-      - name: Pack project asset
+      - name: Pack project asset 📦
         run: zip -r wod-foundry-vtt.zip dist
-      - name: Upload project asset
+      - name: Upload project asset 📤
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:

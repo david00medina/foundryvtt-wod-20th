@@ -7,7 +7,9 @@ import {WOD_ROOT} from "../../wod";
 export async function preloadTemplates() {
 	const templatePaths = [
 		// Add paths to "systems/wod/templates"
-		WOD_ROOT + 'templates/actor/wod-actor-sheet.handlebars',
+		WOD_ROOT + 'templates/actor/vampire-actor-sheet.handlebars',
+		WOD_ROOT + 'templates/actor/mage-actor-sheet.handlebars',
+		WOD_ROOT + 'templates/actor/actor-sheet.handlebars',
 		WOD_ROOT + 'templates/actor/components/wod-actor-sheet-header.handlebars'
 	];
 

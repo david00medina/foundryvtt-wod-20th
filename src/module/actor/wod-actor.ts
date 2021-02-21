@@ -35,7 +35,7 @@ export enum WoDRaceEnum {
  * Creates a new Actor for World of Darkness
  * @category General
  */
-export class WoDActor extends Actor {
+export abstract class WoDActor extends Actor {
     /**
      * Character edition template
      */
@@ -44,8 +44,25 @@ export class WoDActor extends Actor {
     /**
      * WodActor constructor
      */
-    constructor(data, options) {
-        super(data, options);
+    constructor(data, options?) {
+        if (options?.WoD?.ready) {
+            super(data, options)
+        } else {
+            try {
+                const ready = {
+                    WoD: {
+                        ready: true
+                    }
+                }
+                return new CONFIG.WoD.Actor.entityClasses[data.type](data, {
+                    ...ready,
+                    ...options
+                });
+            } catch (e) {
+                console.log(e);
+                super(data, options);
+            }
+        }
     }
 
     /**
@@ -85,7 +102,7 @@ export namespace ClanSectEnum {
      * Gets the name of the clan sect
      * @param clan
      */
-    export function getClan(clan: ClanSectEnum): string {
+    export function getClan(clan: string): ClanSectEnum {
         return ClanSectEnum[clan];
     }
 
@@ -114,12 +131,9 @@ export class VampireActor extends WoDActor {
     private _generation: number;
 
     /**
-     * VampireActor constructor
+     * The clan of the vampire actor
      */
-    constructor(data, props) {
-        super(data, props);
-        this.generation = data.generation;
-    }
+    private _clan: ClanSectEnum;
 
     /**
      * Generation level getter
@@ -134,5 +148,19 @@ export class VampireActor extends WoDActor {
      */
     set generation(lvl: number) {
         this.generation = lvl;
+    }
+
+    /**
+     * Clan sect getter
+     */
+    get clan(): ClanSectEnum {
+        return this._clan;
+    }
+
+    /**
+     * Clan sect setter
+     */
+    set clan(clan: ClanSectEnum) {
+        this._clan = clan;
     }
 }

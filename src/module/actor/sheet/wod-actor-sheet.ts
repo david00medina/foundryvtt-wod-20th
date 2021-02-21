@@ -7,14 +7,39 @@
  */
 import {WOD_ROOT} from "../../../wod";
 
-export class WodActorSheet extends ActorSheet {
+export abstract class WoDActorSheet extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: [],
-            template: WOD_ROOT + "/templates/actor/wod-actor-sheet.handlebars",
             width: 525,
             height: 743,
             tabs: []
         })
+    }
+}
+
+export class VampireActorSheet extends WoDActorSheet {
+    static get defaultOptions() {
+        return mergeObject(super.defaultOptions, {
+            classes: []
+        });
+    }
+
+    get template(): string {
+        const path = WOD_ROOT + "/templates/actor/";
+        return `${path}vampire-actor-sheet.handlebars`;
+    }
+}
+
+export class MageActorSheet extends WoDActorSheet {
+    static get defaultOptions() {
+        return mergeObject(super.defaultOptions, {
+            classes: []
+        });
+    }
+
+    get template(): string {
+        const path = WOD_ROOT + "/templates/actor/";
+        return `${path}mage-actor-sheet.handlebars`;
     }
 }

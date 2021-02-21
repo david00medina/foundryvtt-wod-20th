@@ -1,4 +1,4 @@
-import {WodActorSheet} from "../actor/sheet/wod-actor-sheet";
+import {MageActorSheet, VampireActorSheet} from "../actor/sheet/wod-actor-sheet";
 
 /**
  * It registers all the character sheets needed for
@@ -6,12 +6,23 @@ import {WodActorSheet} from "../actor/sheet/wod-actor-sheet";
  */
 export function registerCharacterSheets () {
     Actors.unregisterSheet("core", ActorSheet);
+
     Actors.registerSheet(
         "WoD",
-        WodActorSheet,
+        VampireActorSheet,
         {
-            label: "base",
+            label: "vampire",
+            types: ["vampire"],
             makeDefault: true }
     );
 
+    Actors.registerSheet(
+        "WoD",
+        MageActorSheet,
+        {
+            label: "mage",
+            types: ["mage"],
+            makeDefault: true
+        }
+    )
 }
